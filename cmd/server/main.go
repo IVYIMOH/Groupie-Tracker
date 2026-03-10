@@ -1,32 +1,20 @@
 package main
 
 import (
-	"log"
-	"net/http"
-
-	"groupie-tracker/internal/api"
+	"fmt"
 	"groupie-tracker/internal/handlers"
+	"net/http"
 )
 
 func main() {
-	client := api.NewClient()
+	// Serve static files (CSS/JS)
+	fs := http.FileServer(http.Dir("internal/static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	h, err := handlers.New(client)
-	if err != nil {
-		log.Fatalf("Failed to load templates: %v", err)
+	// Routes
+	http.HandleFunc("/", handlers.HomeHandler)
+	http.HandleFunc("/artist", handlers.ArtistHandler)
 
-	}
-	mux := http.NewServeMux()
-
-	mux.HandleFunc("/", h.Home)
-	mux.HandleFunc("/artist", h.ArtistDetail)
-	mux.HandleFunc("/search", h.Search)
-
-	fs := http.FileServer(http.Dir("static"))
-	mux.Handle("/static/", http.StripPrefix("/static", fs))
-
-	log.Println("Server starting on http://localhost:8080")
-	if err := http.ListenAndServe(":8080", mux); err != nil {
-		log.Fatalf("Server failed: %v", err)
-	}
+	fmt.Println("Server starting at http://localhost:8080")
+	http.ListenAndServe(":8080", nil)
 }
