@@ -2,8 +2,9 @@ package handlers
 
 import (
 	"encoding/json"
-	"groupie-tracker/internal/models"
 	"net/http"
+
+	"Groupie-Tracker/internal/models"
 )
 
 const BaseURL = "https://groupietrackers.herokuapp.com/api"
@@ -20,11 +21,11 @@ func FetchArtists() ([]models.Artist, error) {
 	return artists, err
 }
 
-func FetchArtistFullData(id string) (models.ArtistFullData, error) {
-	var data models.ArtistFullData
+func FetchArtistFullData(id string) (models.ArtistDetails, error) {
+	var data models.ArtistDetails
 	errChan := make(chan error, 2)
 
-	// Fetch Artist Basic Info
+	// 1. Fetch Basic Artist Info
 	go func() {
 		resp, err := http.Get(BaseURL + "/artists/" + id)
 		if err != nil {
@@ -32,10 +33,11 @@ func FetchArtistFullData(id string) (models.ArtistFullData, error) {
 			return
 		}
 		defer resp.Body.Close()
+		// Decodes directly into the embedded Artist struct
 		errChan <- json.NewDecoder(resp.Body).Decode(&data.Artist)
 	}()
 
-	// Fetch Relations (Locations + Dates)
+	// 2. Fetch Relations
 	go func() {
 		resp, err := http.Get(BaseURL + "/relation/" + id)
 		if err != nil {
@@ -43,10 +45,19 @@ func FetchArtistFullData(id string) (models.ArtistFullData, error) {
 			return
 		}
 		defer resp.Body.Close()
-		errChan <- json.NewDecoder(resp.Body).Decode(&data.Relation)
+
+		// THE FIX: The API returns {"id": 1, "datesLocations": {...}}
+		// We need a temporary struct to catch that specific API shape
+		var temp struct {
+			DatesLocations map[string][]string `json:"datesLocations"`
+		}
+
+		err = json.NewDecoder(resp.Body).Decode(&temp)
+		data.RelationsMap = temp.DatesLocations
+		errChan <- err
 	}()
 
-	// Wait for both routines
+	// Wait for both
 	for i := 0; i < 2; i++ {
 		if err := <-errChan; err != nil {
 			return data, err

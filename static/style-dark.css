@@ -11,7 +11,7 @@ body {
 
 header, header.navbar {
     background-color: #2a2a2a !important;
-    border: 3px solid rgb #bb86fc !important;
+    border: 3px solid rgb #cee00e !important;
     padding: 1rem 2rem;
     box-shadow: 0 2px 4px rgba(255,255,255,0.1);
     display: flex;
@@ -20,7 +20,7 @@ header, header.navbar {
     position: sticky;
     top: 0;
     z-index: 100;
-    color: #bb86fc;
+    color: #cdc334;
     flex-wrap: wrap;
 }
 
@@ -38,7 +38,7 @@ main {
     background-color: #1e1e1e;
     border-radius: 12px;
     padding: 2rem;
-    box-shadow: 0 4px 12px rgba(187, 134, 252, 0.3);
+    box-shadow: 0 4px 12px rgba(193, 184, 15, 0.3);
 }
 
 .back-button {
@@ -65,7 +65,7 @@ main {
 }
 
 .back-button:hover {
-    background-color: #9a67ea;
+    background-color: #b7d017;
 }
 
 .artists-grid {
@@ -78,7 +78,7 @@ main {
 .artist {
     background-color: #2c2c2c;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(187, 134, 252, 0.2);
+    box-shadow: 0 4px 12px rgba(226, 226, 11, 0.2);
     text-align: center;
     padding: 1.5rem 1rem;
     text-decoration: none;
@@ -91,7 +91,7 @@ main {
 
 .artist:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(187, 134, 252, 0.4);
+    box-shadow: 0 8px 16px rgba(205, 238, 15, 0.4);
 }
 
 .artist img {
@@ -100,14 +100,14 @@ main {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1rem;
-    border: 2px solid #bb86fc;
+    border: 2px solid #9be818;
 }
 
 .artist-info h2 {
     margin: 0 0 0.5rem 0;
     font-size: 1.25rem;
     font-weight: 700;
-    color: #bb86fc;
+    color: #c9e611;
 }
 
 .artist-info p {
@@ -139,7 +139,7 @@ main {
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #bb86fc;
+    border: 3px solid #d8bc08;
     animation: spin-disk 5s linear infinite;
   }
   
@@ -155,7 +155,7 @@ main {
     margin: 0 0 0.5rem 0;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #bb86fc;
+    color: #94a60d;
 }
 
 .artist-basic-info p {
@@ -174,16 +174,16 @@ main {
     background-color: #2c2c2c;
     border-radius: 8px;
     padding: 1rem;
-    box-shadow: 0 2px 6px rgba(187, 134, 252, 0.2);
+    box-shadow: 0 2px 6px rgba(166, 185, 19, 0.2);
     text-align: center;
 }
 
 .column h3 {
     margin-top: 0;
     font-size: 1.25rem;
-    border-bottom: 2px solid #bb86fc;
+    border-bottom: 2px solid #8fc408;
     padding-bottom: 0.5rem;
-    color: #bb86fc;
+    color: #c0c620;
 }
 
 .column ul {
@@ -254,7 +254,7 @@ main {
     width: 300px;
     max-width: 90vw;
     padding: 0.5rem 1rem;
-    border: 2px solid #bb86fc;
+    border: 2px solid #a1ca19;
     border-radius: 8px 0 0 8px;
     background-color: #2c2c2c;
     color: #e0e0e0;
@@ -264,15 +264,15 @@ main {
 }
 
 .search-input:focus {
-    border-color: #9a67ea;
+    border-color: #b5bd1c;
 }
 
 .search-button {
     padding: 0.5rem 1rem;
-    border: 2px solid #bb86fc;
+    border: 2px solid #a9c80f;
     border-left: none;
     border-radius: 0 8px 8px 0;
-    background-color: #bb86fc;
+    background-color: #a4a715;
     color: #121212;
     font-weight: 600;
     cursor: pointer;
@@ -280,7 +280,7 @@ main {
 }
 
 .search-button:hover {
-    background-color: #9a67ea;
+    background-color: #9baa0f;
 }
 
 /* Layout wrapper to manage full height */

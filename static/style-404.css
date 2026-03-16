@@ -17,13 +17,13 @@ body {
 
 .navbar {
     background-color: #2a2a2a;
-    border: 3px solid #bb86fc;
+    border: 3px solid #ebd90e;
     padding: 1rem 2rem;
     box-shadow: 0 2px 4px rgba(255,255,255,0.1);
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #bb86fc;
+    color: #fc8694;
     flex-shrink: 0;
 }
 
@@ -40,7 +40,7 @@ main {
 }
 
 h1.title {
-    color: #bb86fc;
+    color: #ab9110;
     font-size: 4rem;
     margin-bottom: 1rem;
     font-weight: 700;
@@ -54,7 +54,7 @@ p.status-message {
 
 .back-button {
     padding: 0.75rem 1.5rem;
-    background-color: #bb86fc;
+    background-color: #a88f13;
     color: #121212;
     border: none;
     border-radius: 8px;
@@ -66,12 +66,12 @@ p.status-message {
 }
 
 .back-button:hover {
-    background-color: #4a1575;
+    background-color: #a5b516;
 }
 
 .footer {
     background-color: #1f1f1f;
-    color: #bb86fc;
+    color: #9db70a;
     text-align: center;
     padding: 1rem 0;
     margin-top: auto;
